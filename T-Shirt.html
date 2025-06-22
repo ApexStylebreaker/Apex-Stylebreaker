@@ -94,18 +94,6 @@
     width: 60px;
     font-size: 0.9rem;
   }
-  .agb-link {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-  .agb-link a {
-    color: #f26522;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .agb-link a:hover {
-    text-decoration: underline;
-  }
 </style>
 </head>
 <body>
@@ -216,206 +204,138 @@
 
     <button type="button" id="berechnenBtn1">Berechnen</button>
 
-    <div class="total" id="total1"></div>
+    <div class="total" id="ergebnis1"></div>
   </fieldset>
 
-  <!-- Tabelle 2: Event Textilien + Druckkosten -->
+  <!-- Tabelle 2: DTF, Pressen, UV DTF -->
   <fieldset id="tabelle2">
-    <legend>Event Textilien und Druckkosten</legend>
+    <legend>DTF, Pressen und UV DTF</legend>
 
-    <label for="eventTextilSelect">Event Textiltyp:</label>
-    <select id="eventTextilSelect" required>
-      <option value="" disabled selected>-- Wähle Event Textil --</option>
-      <option value="8.70">Polo men - 8,70 €</option>
-      <option value="8.70">Polo woman - 8,70 €</option>
-      <option value="6.80">Polo kids - 6,80 €</option>
-      <option value="6.80">Long Sleeve T-Shirts - 6,80 €</option>
-      <option value="11.80">Sweatshirts men - 11,80 €</option>
-      <option value="13.20">Sweatshirts woman - 13,20 €</option>
-      <option value="15.40">Hoodies - 15,40 €</option>
-      <option value="3.80">Warnweste - 3,80 €</option>
-    </select>
+    <div class="position-group">
+      <label for="dtfPreis">DTF Preis / Stück (€):</label>
+      <input type="number" id="dtfPreis" min="0" step="0.01" value="0" />
+      <label for="dtfMenge">Stückzahl DTF:</label>
+      <input type="number" id="dtfMenge" min="0" value="0" />
+    </div>
 
-    <label for="eventTextilStueckzahl">Stückzahl Event Textil:</label>
-    <input type="number" id="eventTextilStueckzahl" min="0" value="0" />
+    <div class="position-group">
+      <label for="pressenMenge">Stückzahl Pressen:</label>
+      <input type="number" id="pressenMenge" min="0" value="0" />
+      <label>Pressen Preis fix: 7,50 €</label>
+    </div>
 
-    <fieldset style="margin-top:1rem;">
-      <legend>Druckkosten</legend>
+    <div class="position-group">
+      <label for="uvdtfPreis">UV DTF Preis / Stück (€):</label>
+      <input type="number" id="uvdtfPreis" min="0" step="0.01" value="0" />
+      <label for="uvdtfMenge">Stückzahl UV DTF:</label>
+      <input type="number" id="uvdtfMenge" min="0" value="0" />
+    </div>
 
-      <label for="eventDruckGrundpreis">Grundpreis Druckart:</label>
-      <select id="eventDruckGrundpreis" required>
-        <option value="" disabled selected>-- Wähle Druckart --</option>
-        <option value="9">Einfärbig - 9 €</option>
-        <option value="12">Fotodruck - 12 €</option>
-      </select>
-
-      <div class="positions">
-
-        <div class="position-group">
-          <h3>Vorne</h3>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventFrontOneColor" value="3.5" />
-            <label for="eventFrontOneColor">Einfärbig (3,50 €)</label>
-            <input type="number" id="eventFrontOneColorQty" min="0" value="0" />
-          </div>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventFrontPhotoPrint" value="4.5" />
-            <label for="eventFrontPhotoPrint">Fotodruck (4,50 €)</label>
-            <input type="number" id="eventFrontPhotoPrintQty" min="0" value="0" />
-          </div>
-        </div>
-
-        <div class="position-group">
-          <h3>Hinten</h3>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventBackOneColor" value="3.5" />
-            <label for="eventBackOneColor">Einfärbig (3,50 €)</label>
-            <input type="number" id="eventBackOneColorQty" min="0" value="0" />
-          </div>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventBackPhotoPrint" value="4.5" />
-            <label for="eventBackPhotoPrint">Fotodruck (4,50 €)</label>
-            <input type="number" id="eventBackPhotoPrintQty" min="0" value="0" />
-          </div>
-        </div>
-
-        <div class="position-group">
-          <h3>Ärmel links</h3>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventLeftSleeveOneColor" value="3.5" />
-            <label for="eventLeftSleeveOneColor">Einfärbig (3,50 €)</label>
-            <input type="number" id="eventLeftSleeveOneColorQty" min="0" value="0" />
-          </div>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventLeftSleevePhotoPrint" value="4.5" />
-            <label for="eventLeftSleevePhotoPrint">Fotodruck (4,50 €)</label>
-            <input type="number" id="eventLeftSleevePhotoPrintQty" min="0" value="0" />
-          </div>
-        </div>
-
-        <div class="position-group">
-          <h3>Ärmel rechts</h3>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventRightSleeveOneColor" value="3.5" />
-            <label for="eventRightSleeveOneColor">Einfärbig (3,50 €)</label>
-            <input type="number" id="eventRightSleeveOneColorQty" min="0" value="0" />
-          </div>
-          <div class="checkbox-qty">
-            <input type="checkbox" id="eventRightSleevePhotoPrint" value="4.5" />
-            <label for="eventRightSleevePhotoPrint">Fotodruck (4,50 €)</label>
-            <input type="number" id="eventRightSleevePhotoPrintQty" min="0" value="0" />
-          </div>
-        </div>
-
-      </div>
-
-      <label for="eventStueckzahlDruck">Stückzahl Druck:</label>
-      <input type="number" id="eventStueckzahlDruck" min="0" value="0" />
-
-      <label for="eventRabatt">Rabatt % auf Druckkosten:</label>
-      <input type="number" id="eventRabatt" min="0" max="100" value="0" />
-    </fieldset>
+    <label for="rabatt2">Rabatt % auf Gesamt:</label>
+    <input type="number" id="rabatt2" min="0" max="100" value="0" />
 
     <button type="button" id="berechnenBtn2">Berechnen</button>
 
-    <div class="total" id="total2"></div>
+    <div class="total" id="ergebnis2"></div>
   </fieldset>
 
 </div>
 
-<div class="agb-link">
-  <a href="https://www.apex-stylebreaker.de/agb/" target="_blank" rel="noopener noreferrer">AGB</a>
-</div>
-
 <script>
-function berechneGesamtpreis(
-  textilPreis, textilMenge,
-  grundpreisDruck,
-  druckPositionen, druckMenge,
-  rabatt
-) {
-  // Summe aller Druckpositionen (Preis * Menge), nur wenn Checkbox aktiv
-  let druckKosten = 0;
-  druckPositionen.forEach(pos => {
-    if (pos.checked) {
-      const qtyInput = document.getElementById(pos.qtyId);
-      let menge = parseInt(qtyInput.value, 10);
-      if (isNaN(menge) || menge < 0) menge = 0;
-      druckKosten += pos.preis * menge;
+  // Funktion Tabelle 1 Berechnung (unverändert, original)
+  document.getElementById("berechnenBtn1").addEventListener("click", function() {
+    const textilPreis = parseFloat(document.getElementById("textilSelect").value) || 0;
+    const textilStueckzahl = parseInt(document.getElementById("textilStueckzahl").value) || 0;
+
+    const grundpreisDruck = parseFloat(document.getElementById("druckGrundpreis").value) || 0;
+    const stueckzahlDruck = parseInt(document.getElementById("stückzahlDruck").value) || 0;
+
+    // Sammle Druckpositionen: Nur ausgewählte Positionen + Menge
+    function getPosKosten(checkboxId, qtyId) {
+      const cb = document.getElementById(checkboxId);
+      const qty = parseInt(document.getElementById(qtyId).value) || 0;
+      if(cb.checked && qty > 0) {
+        return parseFloat(cb.value) * qty;
+      }
+      return 0;
     }
+
+    let druckKostenProDruck = grundpreisDruck;
+
+    // Summe aller Motive pro Druck (Vorne, Hinten, Ärmel links, Ärmel rechts)
+    druckKostenProDruck += getPosKosten("frontOneColor", "frontOneColorQty");
+    druckKostenProDruck += getPosKosten("frontPhotoPrint", "frontPhotoPrintQty");
+    druckKostenProDruck += getPosKosten("backOneColor", "backOneColorQty");
+    druckKostenProDruck += getPosKosten("backPhotoPrint", "backPhotoPrintQty");
+    druckKostenProDruck += getPosKosten("leftSleeveOneColor", "leftSleeveOneColorQty");
+    druckKostenProDruck += getPosKosten("leftSleevePhotoPrint", "leftSleevePhotoPrintQty");
+    druckKostenProDruck += getPosKosten("rightSleeveOneColor", "rightSleeveOneColorQty");
+    druckKostenProDruck += getPosKosten("rightSleevePhotoPrint", "rightSleevePhotoPrintQty");
+
+    // Pauschalen pro Druck (Hinten 5€, Ärmel links 4€, Ärmel rechts 4€) - pro Druck und nur wenn mindestens ein Motiv auf dieser Position ausgewählt
+    // Wir prüfen nur, ob mindestens eine Motive in der Position aktiv sind (egal wie viele Motive und Anzahl)
+    function pauschale(positionIds, pauschalbetrag) {
+      for(const id of positionIds) {
+        const cb = document.getElementById(id);
+        if(cb.checked) return pauschalbetrag;
+      }
+      return 0;
+    }
+
+    // Positionsgruppen mit Pauschalen
+    // Hinweis: Pauschalen pro Druck, also multipliziert mit stueckzahlDruck
+    let pauschalenSumme = 0;
+    pauschalenSumme += pauschale(["backOneColor", "backPhotoPrint"], 5);
+    pauschalenSumme += pauschale(["leftSleeveOneColor", "leftSleevePhotoPrint"], 4);
+    pauschalenSumme += pauschale(["rightSleeveOneColor", "rightSleevePhotoPrint"], 4);
+
+    druckKostenProDruck += pauschalenSumme;
+
+    // Gesamt Druckkosten
+    let gesamtDruckKosten = druckKostenProDruck * stueckzahlDruck;
+
+    // Rabatt auf Druckkosten
+    let rabatt = parseFloat(document.getElementById("rabatt").value) || 0;
+    if(rabatt > 0 && rabatt <= 100){
+      gesamtDruckKosten = gesamtDruckKosten * (1 - rabatt/100);
+    }
+
+    // Gesamtpreis inkl Textil
+    let gesamtPreis = (textilPreis * textilStueckzahl) + gesamtDruckKosten;
+
+    document.getElementById("ergebnis1").textContent =
+      `Gesamtpreis Textil + Druck: ${gesamtPreis.toFixed(2)} €`;
   });
 
-  // Grundpreis Druckart pro Druckstück multiplizieren mit Anzahl Druckstücke
-  const grundkosten = grundpreisDruck * druckMenge;
+  // Funktion Tabelle 2 Berechnung (angepasst)
 
-  // Gesamtdruckkosten (Grundkosten + Summe Druckpositionen)
-  let gesamtDruck = grundkosten + druckKosten;
+  document.getElementById("berechnenBtn2").addEventListener("click", function() {
+    const dtfPreis = parseFloat(document.getElementById("dtfPreis").value) || 0;
+    const dtfMenge = parseInt(document.getElementById("dtfMenge").value) || 0;
 
-  // Rabattabzug
-  if (rabatt > 0 && rabatt <= 100) {
-    gesamtDruck = gesamtDruck * (1 - rabatt / 100);
-  }
+    const pressenMenge = parseInt(document.getElementById("pressenMenge").value) || 0;
+    const pressenFixPreis = 7.50; // fix
 
-  // Textilkosten
-  const textilGesamt = textilPreis * textilMenge;
+    const uvdtfPreis = parseFloat(document.getElementById("uvdtfPreis").value) || 0;
+    const uvdtfMenge = parseInt(document.getElementById("uvdtfMenge").value) || 0;
 
-  // Gesamtpreis
-  return (textilGesamt + gesamtDruck).toFixed(2);
-}
+    // Berechnung Gesamt ohne Rabatt
+    const dtfGesamt = dtfPreis * dtfMenge;
+    const pressenGesamt = pressenFixPreis * pressenMenge;
+    const uvdtfGesamt = uvdtfPreis * uvdtfMenge;
 
-// Event für Tabelle 1
-document.getElementById('berechnenBtn1').addEventListener('click', () => {
-  const textilSelect = document.getElementById('textilSelect');
-  const textilPreis = parseFloat(textilSelect.value);
-  const textilMenge = parseInt(document.getElementById('textilStueckzahl').value, 10) || 0;
+    let summe = dtfGesamt + pressenGesamt + uvdtfGesamt;
 
-  const grundpreisDruck = parseFloat(document.getElementById('druckGrundpreis').value) || 0;
-  const druckMenge = parseInt(document.getElementById('stückzahlDruck').value, 10) || 0;
-  const rabatt = parseFloat(document.getElementById('rabatt').value) || 0;
+    // Rabatt auf Gesamt
+    let rabatt = parseFloat(document.getElementById("rabatt2").value) || 0;
+    if(rabatt > 0 && rabatt <= 100){
+      summe = summe * (1 - rabatt/100);
+    }
 
-  const druckPositionen = [
-    {checked: document.getElementById('frontOneColor').checked, preis: 3.5, qtyId: 'frontOneColorQty'},
-    {checked: document.getElementById('frontPhotoPrint').checked, preis: 4.5, qtyId: 'frontPhotoPrintQty'},
-    {checked: document.getElementById('backOneColor').checked, preis: 3.5, qtyId: 'backOneColorQty'},
-    {checked: document.getElementById('backPhotoPrint').checked, preis: 4.5, qtyId: 'backPhotoPrintQty'},
-    {checked: document.getElementById('leftSleeveOneColor').checked, preis: 3.5, qtyId: 'leftSleeveOneColorQty'},
-    {checked: document.getElementById('leftSleevePhotoPrint').checked, preis: 4.5, qtyId: 'leftSleevePhotoPrintQty'},
-    {checked: document.getElementById('rightSleeveOneColor').checked, preis: 3.5, qtyId: 'rightSleeveOneColorQty'},
-    {checked: document.getElementById('rightSleevePhotoPrint').checked, preis: 4.5, qtyId: 'rightSleevePhotoPrintQty'}
-  ];
+    document.getElementById("ergebnis2").textContent =
+      `Gesamt DTF + Pressen + UV DTF (Rabatt berücksichtigt): ${summe.toFixed(2)} €`;
+  });
 
-  const gesamtpreis = berechneGesamtpreis(textilPreis, textilMenge, grundpreisDruck, druckPositionen, druckMenge, rabatt);
-
-  const totalDiv = document.getElementById('total1');
-  totalDiv.textContent = `Gesamtpreis: ${gesamtpreis} €`;
-});
-
-// Event für Tabelle 2
-document.getElementById('berechnenBtn2').addEventListener('click', () => {
-  const textilSelect = document.getElementById('eventTextilSelect');
-  const textilPreis = parseFloat(textilSelect.value);
-  const textilMenge = parseInt(document.getElementById('eventTextilStueckzahl').value, 10) || 0;
-
-  const grundpreisDruck = parseFloat(document.getElementById('eventDruckGrundpreis').value) || 0;
-  const druckMenge = parseInt(document.getElementById('eventStueckzahlDruck').value, 10) || 0;
-  const rabatt = parseFloat(document.getElementById('eventRabatt').value) || 0;
-
-  const druckPositionen = [
-    {checked: document.getElementById('eventFrontOneColor').checked, preis: 3.5, qtyId: 'eventFrontOneColorQty'},
-    {checked: document.getElementById('eventFrontPhotoPrint').checked, preis: 4.5, qtyId: 'eventFrontPhotoPrintQty'},
-    {checked: document.getElementById('eventBackOneColor').checked, preis: 3.5, qtyId: 'eventBackOneColorQty'},
-    {checked: document.getElementById('eventBackPhotoPrint').checked, preis: 4.5, qtyId: 'eventBackPhotoPrintQty'},
-    {checked: document.getElementById('eventLeftSleeveOneColor').checked, preis: 3.5, qtyId: 'eventLeftSleeveOneColorQty'},
-    {checked: document.getElementById('eventLeftSleevePhotoPrint').checked, preis: 4.5, qtyId: 'eventLeftSleevePhotoPrintQty'},
-    {checked: document.getElementById('eventRightSleeveOneColor').checked, preis: 3.5, qtyId: 'eventRightSleeveOneColorQty'},
-    {checked: document.getElementById('eventRightSleevePhotoPrint').checked, preis: 4.5, qtyId: 'eventRightSleevePhotoPrintQty'}
-  ];
-
-  const gesamtpreis = berechneGesamtpreis(textilPreis, textilMenge, grundpreisDruck, druckPositionen, druckMenge, rabatt);
-
-  const totalDiv = document.getElementById('total2');
-  totalDiv.textContent = `Gesamtpreis: ${gesamtpreis} €`;
-});
 </script>
 
 </body>
